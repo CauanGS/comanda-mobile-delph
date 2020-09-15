@@ -1,0 +1,41 @@
+unit UnitLogin;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
+  FMX.Edit, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects;
+
+type
+  TForm1 = class(TForm)
+    Rectangle1: TRectangle;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Rectangle2: TRectangle;
+    Label3: TLabel;
+    TabControl: TTabControl;
+    TabLogin: TTabItem;
+    TabConfig: TTabItem;
+    Layout: TLayout;
+    Layout1: TLayout;
+    Label4: TLabel;
+    Edit2: TEdit;
+    Rectangle3: TRectangle;
+    Label5: TLabel;
+    Label6: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+end.
