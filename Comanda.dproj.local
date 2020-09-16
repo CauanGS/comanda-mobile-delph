@@ -2,13 +2,21 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2020/08/13 04:00:47.000.295,=C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/09/06 17:52:43.140,=C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/09/06 17:56:20.284,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitLogin.fmx=C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
-    <Transaction>2020/09/06 17:56:20.284,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitLogin.pas=C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/09/06 17:56:46.917,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Comanda.dproj=C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2020/09/06 18:23:38.044,=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Unit2.pas</Transaction>
-    <Transaction>2020/09/06 18:24:27.072,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitPrincipal.fmx=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Unit2.fmx</Transaction>
-    <Transaction>2020/09/06 18:24:27.072,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitPrincipal.pas=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Unit2.pas</Transaction>
-  </Transactions>  <ActiveMobileDevice>   <NoProfile iOSSimulator="iPhone5"/>
-  </ActiveMobileDevice>
+    <Transaction>2020/09/06 17:52:43.000.140,=C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 17:56:20.000.284,C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitLogin.pas</Transaction>
+    <Transaction>2020/09/06 17:56:20.000.284,C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitLogin.fmx</Transaction>
+    <Transaction>2020/09/06 17:56:46.000.917,C:\Users\cauan\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Comanda.dproj</Transaction>
+    <Transaction>2020/09/06 18:23:38.000.044,=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Unit2.pas</Transaction>
+    <Transaction>2020/09/06 18:24:27.000.072,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Unit2.pas=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitPrincipal.pas</Transaction>
+    <Transaction>2020/09/06 18:24:27.000.072,C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\Unit2.fmx=C:\Users\cauan\OneDrive\Área de Trabalho\Comanda\Mobile\UnitPrincipal.fmx</Transaction>
+    <Transaction>2020/09/16 02:24:27.542,=C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\Unit1.pas</Transaction>
+    <Transaction>2020/09/16 02:25:10.011,C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\UnitResumo.fmx=C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\Unit1.fmx</Transaction>
+    <Transaction>2020/09/16 02:25:10.011,C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\UnitResumo.pas=C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\Unit1.pas</Transaction>
+    <Transaction>2020/09/16 02:25:35.640,=C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\Unit1.pas</Transaction>
+    <Transaction>2020/09/16 02:26:03.913,C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\UnitAddItem.fmx=C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\Unit1.fmx</Transaction>
+    <Transaction>2020/09/16 02:26:03.913,C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\UnitAddItem.pas=C:\Users\cauan\OneDrive\Documents\Comanda\Mobile\Unit1.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android64="AndroidNexus6" Android=""/>
+	</ActiveMobileDevice>  <BT_BuildType>Debug</BT_BuildType>
 </BorlandProject>

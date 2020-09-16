@@ -59,6 +59,8 @@ object FrmLogin: TFrmLogin
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabLogin'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Layout: TLayout
         Align = Center
         Margins.Bottom = 100.000000000000000000
@@ -139,6 +141,8 @@ object FrmLogin: TFrmLogin
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabConfig'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Layout1: TLayout
         Align = Center
         Margins.Bottom = 100.000000000000000000
