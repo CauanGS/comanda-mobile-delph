@@ -9,6 +9,7 @@ object FrmLogin: TFrmLogin
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   OnClose = FormClose
   DesignerMasterStyle = 3
   object Rectangle1: TRectangle
@@ -19,7 +20,7 @@ object FrmLogin: TFrmLogin
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = xFFD7D7D7
-    object Label1: TLabel
+    object lbl_titulo: TLabel
       Align = Center
       StyledSettings = [Family]
       Locked = True
@@ -40,7 +41,7 @@ object FrmLogin: TFrmLogin
     Size.Height = 431.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = None
     Sizes = (
@@ -52,7 +53,7 @@ object FrmLogin: TFrmLogin
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -115,9 +116,10 @@ object FrmLogin: TFrmLogin
             TabOrder = 0
           end
         end
-        object Label6: TLabel
+        object lbl_config: TLabel
           Align = Bottom
           StyledSettings = [Family]
+          HitTest = True
           Position.Y = 187.000000000000000000
           Size.Width = 249.000000000000000000
           Size.Height = 33.000000000000000000
@@ -127,6 +129,7 @@ object FrmLogin: TFrmLogin
           TextSettings.HorzAlign = Center
           Text = 'Configura'#231#245'es'
           TabOrder = 2
+          OnClick = lbl_configClick
         end
       end
     end
@@ -134,7 +137,7 @@ object FrmLogin: TFrmLogin
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -171,7 +174,7 @@ object FrmLogin: TFrmLogin
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
         end
-        object Rectangle3: TRectangle
+        object rect_save_config: TRectangle
           Align = Top
           Fill.Color = xFF4A70F7
           Margins.Top = 20.000000000000000000
@@ -182,6 +185,7 @@ object FrmLogin: TFrmLogin
           Stroke.Kind = None
           XRadius = 4.000000000000000000
           YRadius = 4.000000000000000000
+          OnClick = rect_save_configClick
           object Label5: TLabel
             Align = Center
             StyledSettings = [Family]

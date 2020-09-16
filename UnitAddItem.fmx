@@ -19,7 +19,7 @@ object FrmAddItem: TFrmAddItem
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object TabControl1: TTabControl
+    object TabControl: TTabControl
       Align = Client
       Size.Width = 330.000000000000000000
       Size.Height = 480.000000000000000000
@@ -33,7 +33,7 @@ object FrmAddItem: TFrmAddItem
         480s
         330s
         480s)
-      object TabItem1: TTabItem
+      object TabCategoria: TTabItem
         CustomIcon = <
           item
           end>
@@ -43,7 +43,7 @@ object FrmAddItem: TFrmAddItem
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'TabItem1'
+        Text = 'TabCategoria'
         object Rectangle1: TRectangle
           Align = Top
           Fill.Color = claWhite
@@ -66,7 +66,7 @@ object FrmAddItem: TFrmAddItem
             Text = 'Categorias'
             TabOrder = 0
           end
-          object Image1: TImage
+          object img_fechar: TImage
             MultiResBitmap.Height = 74
             MultiResBitmap.Width = 74
             MultiResBitmap = <
@@ -119,10 +119,11 @@ object FrmAddItem: TFrmAddItem
             Size.Width = 50.000000000000000000
             Size.Height = 49.000000000000000000
             Size.PlatformDefault = False
+            OnClick = img_fecharClick
           end
         end
       end
-      object TabItem2: TTabItem
+      object TabProduto: TTabItem
         CustomIcon = <
           item
           end>
@@ -132,7 +133,7 @@ object FrmAddItem: TFrmAddItem
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'TabItem2'
+        Text = 'TabProduto'
         object Rectangle2: TRectangle
           Align = Top
           Fill.Color = claWhite
@@ -155,7 +156,7 @@ object FrmAddItem: TFrmAddItem
             Text = 'Refrigerantes'
             TabOrder = 0
           end
-          object Image2: TImage
+          object img_voltar: TImage
             MultiResBitmap.Height = 74
             MultiResBitmap.Width = 74
             MultiResBitmap = <
@@ -208,6 +209,7 @@ object FrmAddItem: TFrmAddItem
             Size.Width = 50.000000000000000000
             Size.Height = 49.000000000000000000
             Size.PlatformDefault = False
+            OnClick = img_voltarClick
           end
         end
         object Rectangle6: TRectangle

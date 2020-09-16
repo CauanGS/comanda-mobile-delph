@@ -31,7 +31,7 @@ object FrmResumo: TFrmResumo
       Text = 'Resumo'
       TabOrder = 0
     end
-    object Image1: TImage
+    object img_fechar: TImage
       MultiResBitmap.Height = 74
       MultiResBitmap.Width = 74
       MultiResBitmap = <
@@ -83,8 +83,9 @@ object FrmResumo: TFrmResumo
       Size.Width = 50.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
+      OnClick = img_fecharClick
     end
-    object Image2: TImage
+    object img_add_item: TImage
       MultiResBitmap.Height = 74
       MultiResBitmap.Width = 74
       MultiResBitmap = <
@@ -115,6 +116,7 @@ object FrmResumo: TFrmResumo
       Size.Width = 50.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
+      OnClick = img_add_itemClick
     end
   end
   object Rectangle2: TRectangle
@@ -140,7 +142,6 @@ object FrmResumo: TFrmResumo
       object Label2: TLabel
         Align = Top
         StyledSettings = [Family]
-        Locked = True
         Size.Width = 198.000000000000000000
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
@@ -151,10 +152,9 @@ object FrmResumo: TFrmResumo
         Text = 'Comanda / Mesa'
         TabOrder = 1
       end
-      object Label3: TLabel
+      object lbl_comanda: TLabel
         Align = Bottom
         StyledSettings = [Family]
-        Locked = True
         Position.Y = 39.000000000000000000
         Size.Width = 198.000000000000000000
         Size.Height = 33.000000000000000000
@@ -179,7 +179,7 @@ object FrmResumo: TFrmResumo
     Size.PlatformDefault = False
     TabOrder = 2
   end
-  object rect_login: TRectangle
+  object rect_encerrar: TRectangle
     Align = Bottom
     Fill.Color = xFF4A70F7
     Margins.Top = 20.000000000000000000
@@ -188,6 +188,7 @@ object FrmResumo: TFrmResumo
     Size.Height = 47.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    OnClick = rect_encerrarClick
     object Label4: TLabel
       Align = Center
       StyledSettings = [Family]

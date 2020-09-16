@@ -1,0 +1,109 @@
+unit UnitPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.ListView.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
+  FMX.Layouts, FMX.ListBox, FMX.Edit;
+
+type
+  TFrmPrincipal = class(TForm)
+    Rectangle1: TRectangle;
+    Label1: TLabel;
+    TabControl: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    TabItem3: TTabItem;
+    rect_abas: TRectangle;
+    Rectangle3: TRectangle;
+    Label2: TLabel;
+    Rectangle4: TRectangle;
+    Label3: TLabel;
+    Layout: TLayout;
+    Label4: TLabel;
+    edt_comanda: TEdit;
+    rect_add_item: TRectangle;
+    Label5: TLabel;
+    rect_detalhes: TRectangle;
+    Label6: TLabel;
+    ListBox1: TListBox;
+    Rectangle6: TRectangle;
+    ListView1: TListView;
+    Edit2: TEdit;
+    Rectangle7: TRectangle;
+    Label7: TLabel;
+    img_aba1: TImage;
+    img_aba2: TImage;
+    img_aba3: TImage;
+    procedure img_aba1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure rect_detalhesClick(Sender: TObject);
+    procedure rect_add_itemClick(Sender: TObject);
+  private
+    procedure MudarAba(img: TImage);
+    procedure DetalhesComanda(comanda: integer);
+    { Private declarations }
+  public
+    procedure AddItem(comanda: integer);
+    { Public declarations }
+  end;
+
+var
+  FrmPrincipal: TFrmPrincipal;
+
+implementation
+
+{$R *.fmx}
+
+uses UnitAddItem, UnitResumo;
+
+procedure TFrmPrincipal.MudarAba(img: TImage);
+begin
+    img_aba1.Opacity := 0.4;
+    img_aba2.Opacity := 0.4;
+    img_aba3.Opacity := 0.4;
+    img.Opacity := 1;
+    TabControl.GoToVisibleTab(img.tag, TTabTransition.Slide);
+end;
+
+procedure TFrmPrincipal.DetalhesComanda(comanda: integer);
+begin
+    if NOT Assigned(FrmResumo) then
+        Application.CreateForm(TFrmResumo, FrmResumo);
+        FrmResumo.Show;
+end;
+
+procedure TFrmPrincipal.rect_add_itemClick(Sender: TObject);
+begin
+    if edt_comanda.Text <> '' then
+    AddItem;
+end;
+
+procedure TFrmPrincipal.rect_detalhesClick(Sender: TObject);
+begin
+    if edt_comanda.Text <> '' then
+    DetalhesComanda(edt_comanda.Text.toInteger);
+end;
+
+procedure TFrmPrincipal.FormShow(Sender: TObject);
+begin
+    mudarAba(img_aba1);
+end;
+
+procedure TFrmPrincipal.img_aba1Click(Sender: TObject);
+begin
+    MudarAba(TImage(Sender));
+end;
+
+procedure TFrmPrincipal.AddItem(comanda: Integer);
+begin
+    if NOT Assigned(FrmAddItem) then
+        Application.CreateForm(TFrmAddItem, FrmAddItem);
+
+    FrmAddItem.TabControl.ActiveTab := FrmAddItem.TabCategoria;
+    FrmAddItem.Show;
+end;
+end.

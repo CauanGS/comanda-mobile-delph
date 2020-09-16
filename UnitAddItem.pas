@@ -13,14 +13,14 @@ type
   TFrmAddItem = class(TForm)
     Rectangle1: TRectangle;
     Label1: TLabel;
-    Image1: TImage;
+    img_fechar: TImage;
     ListView1: TListView;
-    TabControl1: TTabControl;
-    TabItem1: TTabItem;
-    TabItem2: TTabItem;
+    TabControl: TTabControl;
+    TabCategoria: TTabItem;
+    TabProduto: TTabItem;
     Rectangle2: TRectangle;
     Label2: TLabel;
-    Image2: TImage;
+    img_voltar: TImage;
     Rectangle6: TRectangle;
     Edit2: TEdit;
     Rectangle7: TRectangle;
@@ -28,6 +28,8 @@ type
     ListView2: TListView;
     Rectangle3: TRectangle;
     Label3: TLabel;
+    procedure img_fecharClick(Sender: TObject);
+    procedure img_voltarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,5 +42,15 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFrmAddItem.img_fecharClick(Sender: TObject);
+begin
+    close;
+end;
+
+procedure TFrmAddItem.img_voltarClick(Sender: TObject);
+begin
+    TabControl.GotoVisibleTab(0, TTabTransition.Slide);
+end;
 
 end.

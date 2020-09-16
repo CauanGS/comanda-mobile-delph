@@ -13,7 +13,7 @@ type
   TFrmPrincipal = class(TForm)
     Rectangle1: TRectangle;
     Label1: TLabel;
-    TabControl1: TTabControl;
+    TabControl: TTabControl;
     TabItem1: TTabItem;
     TabItem2: TTabItem;
     TabItem3: TTabItem;
@@ -24,23 +24,34 @@ type
     Label3: TLabel;
     Layout: TLayout;
     Label4: TLabel;
-    Edit1: TEdit;
-    rect_login: TRectangle;
+    edt_comanda: TEdit;
+    rect_add_item: TRectangle;
     Label5: TLabel;
-    Rectangle5: TRectangle;
+    rect_detalhes: TRectangle;
     Label6: TLabel;
-    ListBox1: TListBox;
+    lb_mapa: TListBox;
     Rectangle6: TRectangle;
     ListView1: TListView;
     Edit2: TEdit;
     Rectangle7: TRectangle;
     Label7: TLabel;
-    Image1: TImage;
-    Image2: TImage;
-    Image3: TImage;
+    img_aba1: TImage;
+    img_aba2: TImage;
+    img_aba3: TImage;
+    procedure img_aba1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure rect_detalhesClick(Sender: TObject);
+    procedure rect_add_itemClick(Sender: TObject);
+    procedure lb_mapaItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
+    procedure FormResize(Sender: TObject);
   private
+    procedure MudarAba(img: TImage);
+    procedure DetalhesComanda(comanda: integer);
+    procedure AddMapa(comanda: Integer; status: string; valor: double);
     { Private declarations }
   public
+    procedure AddItem(comanda: integer);
     { Public declarations }
   end;
 
@@ -50,5 +61,145 @@ var
 implementation
 
 {$R *.fmx}
+
+uses UnitAddItem, UnitResumo;
+
+procedure TFrmPrincipal.MudarAba(img: TImage);
+begin
+    img_aba1.Opacity := 0.4;
+    img_aba2.Opacity := 0.4;
+    img_aba3.Opacity := 0.4;
+    img.Opacity := 1;
+    TabControl.GoToVisibleTab(img.tag, TTabTransition.Slide);
+end;
+
+procedure TFrmPrincipal.DetalhesComanda(comanda: integer);
+begin
+    if NOT Assigned(FrmResumo) then
+        Application.CreateForm(TFrmResumo, FrmResumo);
+
+        FrmResumo.lbl_comanda.Text := comanda.ToString;
+        FrmResumo.Show;
+end;
+
+procedure TFrmPrincipal.rect_add_itemClick(Sender: TObject);
+begin
+    if edt_comanda.Text <> '' then
+    AddItem(edt_comanda.Text.toInteger);
+end;
+
+procedure TFrmPrincipal.rect_detalhesClick(Sender: TObject);
+begin
+    if edt_comanda.Text <> '' then
+    DetalhesComanda(edt_comanda.Text.toInteger);
+end;
+
+procedure TFrmPrincipal.FormResize(Sender: TObject);
+begin
+    lb_mapa.Columns := Trunc(lb_mapa.Width / 100);
+end;
+
+procedure TFrmPrincipal.FormShow(Sender: TObject);
+begin
+    MudarAba(img_aba1);
+    AddMapa(1,'Livre',20);
+    AddMapa(2,'Ocupada',40);
+    AddMapa(3,'Ocupada',15);
+    AddMapa(4,'Livre',14);
+    AddMapa(5,'Livre',300);
+    AddMapa(6,'Ocupada',20);
+end;
+
+procedure TFrmPrincipal.img_aba1Click(Sender: TObject);
+begin
+    MudarAba(TImage(Sender));
+end;
+
+procedure TFrmPrincipal.lb_mapaItemClick(const Sender: TCustomListBox;
+  const Item: TListBoxItem);
+begin
+    DetalhesComanda(Item.Tag);
+end;
+
+procedure TFrmPrincipal.AddItem(comanda: Integer);
+begin
+    if NOT Assigned(FrmAddItem) then
+        Application.CreateForm(TFrmAddItem, FrmAddItem);
+
+    FrmAddItem.TabControl.ActiveTab := FrmAddItem.TabCategoria;
+    FrmAddItem.Show;
+end;
+
+procedure TFrmPrincipal.AddMapa(comanda: Integer; status: string; valor: double);
+var
+  item: TListBoxItem;
+  rect: TRectangle;
+  lbl: TLabel;
+
+begin
+  // Item da lista
+  item := TListBoxItem.Create(lb_mapa);
+  item.Text := '';
+  item.Height := 108;
+  item.Tag := comanda;
+  item.Selectable := false;
+
+  // Retangulo de fundo...
+  rect := TRectangle.Create(item);
+  rect.Parent := item;
+  rect.Align := TAlignLayout.Client;
+  rect.Margins.Top := 6;
+  rect.Margins.Bottom := 6;
+  rect.Margins.Left := 6;
+  rect.Margins.Right := 6;
+  rect.Fill.Kind := TBrushKind.Solid;
+  if status = 'Livre' then
+    rect.Fill.Color := $FF4A70F7
+  else
+    rect.Fill.Color := $FFEC6E73;
+  rect.XRadius := 10;
+  rect.YRadius := 10;
+  rect.Stroke.Kind := TBrushKind.None;
+  rect.HitTest := false;
+
+  // Label Status
+  lbl := TLabel.Create(rect);
+  lbl.Parent := rect;
+  lbl.Align := TAlignLayout.Top;
+  lbl.Text := status;
+  lbl.Margins.Left := 5;
+  lbl.Margins.Top := 5;
+  lbl.Height := 15;
+  lbl.StyledSettings := lbl.StyledSettings - [TStyledSetting.FontColor];
+  lbl.FontColor := $FFFFFFFF;
+
+  // Label Valor
+  lbl := TLabel.Create(rect);
+  lbl.Parent := rect;
+  lbl.Align := TAlignLayout.Bottom;
+  if status = 'Livre' then
+      lbl.Text := ''
+  else
+    lbl.Text := FormatFloat('#,##0,00', valor);
+  lbl.Margins.Right := 5;
+  lbl.Margins.Bottom := 5;
+  lbl.Height := 15;
+  lbl.StyledSettings := lbl.StyledSettings - [TStyledSetting.FontColor];
+  lbl.FontColor := $FFFFFFFF;
+  lbl.TextAlign := TTextAlign.Trailing;
+
+  // Label Comanda
+  lbl := TLabel.Create(rect);
+  lbl.Parent := rect;
+  lbl.Align := TAlignLayout.Client;
+  lbl.Text := comanda.ToString;
+  lbl.StyledSettings := lbl.StyledSettings - [TStyledSetting.FontColor, TStyledSetting.Size];
+  lbl.FontColor := $FFFFFFFF;
+  lbl.Font.Size := 30;
+  lbl.TextAlign := TTextAlign.Center;
+  lbl.VertTextAlign := TTextAlign.Center;
+
+  lb_mapa.AddObject(item);
+end;
 
 end.
